@@ -15,7 +15,7 @@ app.listen(4000, (err) => {
 });
 
 mongoose
-  .connect("mongodb://localhost:27017/jobportel", {
+  .connect("mongodb+srv://ks:FBL3CkPJITXPtlqV@cluster0.hhl4xxj.mongodb.net/jobportel", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })

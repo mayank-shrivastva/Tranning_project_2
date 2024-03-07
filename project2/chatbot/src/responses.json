@@ -1,0 +1,26 @@
+{
+  "responses": {
+    "hy": "Hello! How may I help you?",
+    "product": "We sell a variety of products including electronics, clothing, accessories, and more.",
+    "welcome message": "Welcome to our store! How can I assist you today?",
+    "promo offer": "We currently have a special promotion! Get 20% off on all electronics this week. Don't miss out!",
+    "featured product": "Our featured product this month is the latest smartphone model. It comes with a high-resolution display, advanced camera features, and long-lasting battery life.",
+    "order process": "To place an order, simply browse our website and add the items you want to your cart. Then proceed to checkout to complete your purchase.",
+    "shipping info": "We offer worldwide shipping for all our products. Shipping fees may apply depending on your location.",
+    "payment methods": "We accept various payment methods including credit/debit cards, PayPal, and bank transfers.",
+    "return policy": "We have a 30-day return policy. If you're not satisfied with your purchase, you can return it for a full refund or exchange.",
+    "contact support": "If you have any questions or need assistance, feel free to contact our customer support team. We're here to help!",
+    "loyalty program": "Join our loyalty program and earn points for every purchase. These points can be redeemed for discounts on future orders.",
+    "newsletter signup": "Sign up for our newsletter to receive updates on new products, promotions, and exclusive offers.",
+    "preorder": "You can pre-order upcoming products to ensure you get them as soon as they're available. Keep an eye on our website for pre-order announcements.",
+    "electronics": "Our electronics range includes smartphones, laptops, tablets, smartwatches, and more. Browse our collection for the latest tech innovations!",
+    "clothing": "Explore our clothing line for trendy and comfortable apparel for men, women, and kids. From casual wear to formal attire, we've got you covered!",
+    "accessories": "Accessorize your look with our stylish range of accessories including bags, jewelry, hats, and sunglasses. Find the perfect complement to your outfit!",
+    "reviews": "Check out what our customers are saying about our products! Read reviews and ratings to make an informed decision before making a purchase.",
+    "gift cards": "Looking for the perfect gift? Give the gift of choice with our gift cards! Available in various denominations, they're ideal for any occasion.",
+    "bulk orders": "Planning a corporate event or special occasion? Contact us for bulk orders and special discounts. We'll help you find the perfect products for your needs.",
+    "social media": "Follow us on social media for exclusive content, behind-the-scenes glimpses, and exciting giveaways. Join our community of satisfied customers!",
+    "events": "Stay tuned for our product launch events! Be the first to know about our latest releases and join us for exclusive unveilings and demonstrations.",
+    "all products": "Discover our wide range of products including electronics, clothing, accessories, and more. Visit our website to explore our full collection!"
+  }
+}

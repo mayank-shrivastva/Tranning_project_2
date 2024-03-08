@@ -3,6 +3,9 @@
   margin: 0;
   box-sizing: border-box;
 }
+.h3{
+  font: #000;
+}
 
 body {
   height: 100vh;
@@ -63,7 +66,7 @@ span a {
 }
 
 .private {
-  height: 100vh;
+  height: 98vh;
   width: 100vw;
   background-color: white;
   color: white;
@@ -81,4 +84,11 @@ span a {
   padding: 2rem 10rem;
   font-size: 4rem;
   border-radius: 2rem;
+}
+.sideBar{
+  position: absolute;
+  top:14%;
+  margin-left: 70px;
+  width: 500px;
+
 }

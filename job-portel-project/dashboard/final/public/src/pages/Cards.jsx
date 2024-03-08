@@ -2,12 +2,18 @@ import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useCookies } from "react-cookie";
 import axios from "axios";
- 
 import { toast, ToastContainer } from "react-toastify";
+
+// Import the NavBar component
+import NavBar from "./NavBar";
+import Sidebar from "./Sidebar"; // Correct import statement for Sidebar component
+import "./sidebar.css";
+import "./home.css";
 
 export default function Cards() {
   const navigate = useNavigate();
   const [cookies, setCookie, removeCookie] = useCookies([]);
+
   useEffect(() => {
     const verifyUser = async () => {
       if (!cookies.jwt) {
@@ -23,10 +29,11 @@ export default function Cards() {
         if (!data.status) {
           removeCookie("jwt");
           navigate("/login");
-        } else
+        } else {
           toast(`Hi ${data.user} 🦄`, {
             theme: "dark",
           });
+        }
       }
     };
     verifyUser();
@@ -36,12 +43,25 @@ export default function Cards() {
     removeCookie("jwt");
     navigate("/login");
   };
+
   return (
     <>
+      {/* Include the NavBar component */}
+      <NavBar />
+      <div className="sideBar">
+      <Sidebar/>
+      </div>
+     
+      
+      
+      
       <div className="private">
-         
+        
+        <h3>Job Portal</h3>
+        ghjg
         <button onClick={logOut}>Log out</button>
       </div>
+       
       
       <ToastContainer />
     </>

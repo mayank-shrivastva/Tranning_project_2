@@ -69,6 +69,9 @@ function Login() {
         </div>
         <button type="submit">Submit</button>
         <span>
+           Login As  a job poster <Link to="/Register"> Login Now</Link>
+        </span>
+        <span>
           Don't have an account ?<Link to="/register"> Register </Link>
         </span>
       </form>

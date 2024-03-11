@@ -4,11 +4,13 @@ import { useCookies } from "react-cookie";
 import axios from "axios";
 import { toast, ToastContainer } from "react-toastify";
 
+
 // Import the NavBar component
 import NavBar from "./NavBar";
 import Sidebar from "./Sidebar"; // Correct import statement for Sidebar component
 import "./sidebar.css";
 import "./home.css";
+import "./jobpost";
 
 export default function Cards() {
   const navigate = useNavigate();
@@ -53,13 +55,16 @@ export default function Cards() {
       </div>
      
       
-      
+      <div className="jobpost">
+        <jobpost/>
+      </div>
       
       <div className="private">
+
         
         <h3>Job Portal</h3>
         ghjg
-        <button onClick={logOut}>Log out</button>
+        <button  onClick={logOut}>Log out</button>
       </div>
        
       

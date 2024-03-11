@@ -41,40 +41,80 @@ function Login() {
       console.log(ex);
     }
   };
+
+  const [showLoginForm, setShowLoginForm] = useState(true);
+
   return (
     <div className="container">
-      <h2>Login to your Account</h2>
-      <form onSubmit={(e) => handleSubmit(e)}>
+      <h2>{showLoginForm ? "Login As a User" : "Login As a job poster"}</h2>
+      {showLoginForm ? (
+        <form onSubmit={(e) => handleSubmit(e)}>
+          <div>
+            <label htmlFor="email">Email</label>
+            <input
+              type="email"
+              name="email"
+              placeholder="Email"
+              onChange={(e) =>
+                setValues({ ...values, [e.target.name]: e.target.value })
+              }
+            />
+          </div>
+          <div>
+            <label htmlFor="password">Password</label>
+            <input
+              type="password"
+              placeholder="Password"
+              name="password"
+              onChange={(e) =>
+                setValues({ ...values, [e.target.name]: e.target.value })
+              }
+            />
+          </div>
+          <button type="submit">Submit</button>
+           
+          <span>
+            Don't have an account ?<Link to="/register"> Register </Link>
+          </span>
+        </form>
+      ) : (
+        // Your register form component here
         <div>
-          <label htmlFor="email">Email</label>
-          <input
-            type="email"
-            name="email"
-            placeholder="Email"
-            onChange={(e) =>
-              setValues({ ...values, [e.target.name]: e.target.value })
-            }
-          />
+          <form onSubmit={(e) => handleSubmit(e)}>
+          <div>
+            <label htmlFor="email">Email</label>
+            <input
+              type="email"
+              name="email"
+              placeholder="Email"
+              onChange={(e) =>
+                setValues({ ...values, [e.target.name]: e.target.value })
+              }
+            />
+          </div>
+          <div>
+            <label htmlFor="password">Password</label>
+            <input
+              type="password"
+              placeholder="Password"
+              name="password"
+              onChange={(e) =>
+                setValues({ ...values, [e.target.name]: e.target.value })
+              }
+            />
+          </div>
+          <button type="submit">Submit</button>
+           
+          <span>
+            Don't have an account ?<Link to="/register"> Register </Link>
+          </span>
+        </form>
+          {/* Add your register form elements here */}
         </div>
-        <div>
-          <label htmlFor="password">Password</label>
-          <input
-            type="password"
-            placeholder="Password"
-            name="password"
-            onChange={(e) =>
-              setValues({ ...values, [e.target.name]: e.target.value })
-            }
-          />
-        </div>
-        <button type="submit">Submit</button>
-        <span>
-           Login As  a job poster <Link to="/Register"> Login Now</Link>
-        </span>
-        <span>
-          Don't have an account ?<Link to="/register"> Register </Link>
-        </span>
-      </form>
+      )}
+      <br></br><center><button onClick={() => setShowLoginForm(!showLoginForm)}>
+        {showLoginForm ? "Login As a job poster" : "Login As a User"}
+      </button></center>
       <ToastContainer />
     </div>
   );

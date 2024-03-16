@@ -3,6 +3,7 @@ import Register from "./pages/Register";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import Login from "./pages/Login";
 import Cards from "./pages/Cards";
+import Form from "./pages/form";
 import "react-toastify/dist/ReactToastify.css";
 
 export default function App() {
@@ -12,6 +13,7 @@ export default function App() {
         <Route exact path="/register" element={<Register />} />
         <Route exact path="/login" element={<Login />} />
         <Route exact path="/" element={<Cards />} />
+        <Route exact path="/form" element={<Form/>} />
       </Routes>
     </BrowserRouter>
   );

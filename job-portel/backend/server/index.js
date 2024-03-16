@@ -31,13 +31,14 @@ mongoose
     console.log("DB Connection Successful");
   })
   .catch((err) => {
-    console.log(err.message);
+    console.error("Error connecting to MongoDB:", err.message);
+    process.exit(1); // Terminate the application on connection error
   });
 
 // Middleware
 app.use(
   cors({
-    origin: ["http://localhost:3000"],
+    origin: "http://localhost:3000", // Specify single origin instead of array if only one origin is allowed
     methods: ["GET", "POST"],
     credentials: true,
   })
@@ -73,11 +74,8 @@ const jobPostDataSchema = new mongoose.Schema({
   numberOfVacancies: Number,
   educationQualification: String,
   walkingInterview: Boolean,
-  question1: String,
-  question2: String, // Add question2 field
-  question3: String, // Add question3 field
-  question4: String, // Add question4 field
-}, { collection: 'JobPostData' }); // Specify the collection name explicitly
+  questions: [String],
+}, { collection: 'JobPostData' });
 
 // Create the model
 const JobPostData = mongoose.model("JobPostData", jobPostDataSchema);
@@ -85,10 +83,15 @@ const JobPostData = mongoose.model("JobPostData", jobPostDataSchema);
 // Handle POST request to add new data
 app.post("/newdata", upload.single("photo"), async (req, res) => {
   try {
+    let photo = null;
+    if (req.file) {
+      photo = req.file.filename;
+    }
+
     const newData = new JobPostData({
       name: req.body.name,
       email: req.body.email,
-      photo: req.file.filename,
+      photo: photo,
       jobPostingHeadline: req.body.jobPostingHeadline,
       employmentType: req.body.employmentType,
       jobDescription: req.body.jobDescription,
@@ -105,11 +108,9 @@ app.post("/newdata", upload.single("photo"), async (req, res) => {
       numberOfVacancies: req.body.numberOfVacancies,
       educationQualification: req.body.educationQualification,
       walkingInterview: req.body.walkingInterview,
-      question1: req.body.question1,
-      question2: req.body.question2, // Assign question2
-      question3: req.body.question3, // Assign question3
-      question4: req.body.question4  // Assign question4
+      questions: [req.body.question1, req.body.question2, req.body.question3, req.body.question4]
     });
+
     await newData.save();
     res.status(201).json(newData);
   } catch (error) {

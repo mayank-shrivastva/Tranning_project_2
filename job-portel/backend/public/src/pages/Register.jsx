@@ -3,6 +3,7 @@ import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import { useCookies } from "react-cookie";
 import { Link, useNavigate } from "react-router-dom";
+
 function Register() {
   const [cookies] = useCookies(["cookie-name"]);
   const navigate = useNavigate();
@@ -12,7 +13,7 @@ function Register() {
     }
   }, [cookies, navigate]);
 
-  const [values, setValues] = useState({ email: "", password: "" });
+  const [values, setValues] = useState({ name: "", email: "", phone: "", password: "", role: "" });
   const generateError = (error) =>
     toast.error(error, {
       position: "bottom-right",
@@ -44,12 +45,26 @@ function Register() {
     <div className="container">
       <h2>Register Account</h2>
       <form onSubmit={(e) => handleSubmit(e)}>
-      <div>
-          <label htmlFor="Name">Name</label>
+        <div>
+          <label htmlFor="role">Register As</label>
+          <select
+            name="role"
+            onChange={(e) =>
+              setValues({ ...values, [e.target.name]: e.target.value })
+            }
+            required
+          >
+            <option value="">Select Role</option>
+            <option value="user">User</option>
+            <option value="recruiter">Recruiter</option>
+          </select>
+        </div>
+        <div>
+          <label htmlFor="name">Name</label>
           <input
             type="text"
             name="name"
-            placeholder="enter name"
+            placeholder="Enter Name"
             onChange={(e) =>
               setValues({ ...values, [e.target.name]: e.target.value })
             }
@@ -67,11 +82,11 @@ function Register() {
           />
         </div>
         <div>
-          <label htmlFor="email">Phone</label>
+          <label htmlFor="phone">Phone</label>
           <input
-            type="number"
+            type="tel"
             name="phone"
-            placeholder="enter phone"
+            placeholder="Enter Phone"
             onChange={(e) =>
               setValues({ ...values, [e.target.name]: e.target.value })
             }
@@ -81,8 +96,8 @@ function Register() {
           <label htmlFor="password">Password</label>
           <input
             type="password"
-            placeholder="Password"
             name="password"
+            placeholder="Password"
             onChange={(e) =>
               setValues({ ...values, [e.target.name]: e.target.value })
             }
@@ -90,7 +105,7 @@ function Register() {
         </div>
         <button type="submit">Submit</button>
         <span>
-          Already have an account ?<Link to="/login"> Login</Link>
+          Already have an account? <Link to="/login">Login</Link>
         </span>
       </form>
       <ToastContainer />
